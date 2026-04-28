@@ -1,1 +1,139 @@
-# DateWithMe1
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You 💌</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #ffd6e0, #ffeaf4);
+  overflow: hidden;
+  text-align: center;
+}
+
+/* container */
+.container {
+  position: relative;
+  z-index: 2;
+  margin-top: 100px;
+}
+
+/* button */
+button {
+  padding: 15px 25px;
+  font-size: 18px;
+  border: none;
+  border-radius: 30px;
+  background: #ff7aa2;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #ff4f87;
+}
+
+/* hidden content */
+.hidden {
+  display: none;
+}
+
+.card {
+  margin-top: 30px;
+  padding: 20px;
+  background: white;
+  border-radius: 20px;
+  width: 80%;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* heart animation */
+.heart {
+  position: absolute;
+  bottom: -10px;
+  font-size: 20px;
+  animation: floatUp 6s linear infinite;
+  opacity: 0.6;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    transform: translateY(-100vh) scale(1.5);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <button onclick="nextStep()">Bấm vào đây 💌</button>
+
+  <div id="message1" class="card hidden">
+    <h2>Ôi bé biết giờ này giờ gì honggg 💖</h2>
+    <p>Giờ là lúc ta được tròn chỉnh 1 tháng ròi nà. Ôi lẹ vchhh✨</p>
+    <p>Tháng ròi mìn có làm bé bùn ss mong bé thứ lỗi, bụng chỉ để nui mỡ nui con mìn chớ đừng để nui mấy chiện hong vui nhee</p>
+    <p>Hong phải lần đầu mới yêu nhma thật sự mìn còn nhiều thiếu sót lắm mong embe sẽ nói và chỉ mìn thêm nhá. Anh yêu em nhiều lắmmmm💖</p>
+    <button onclick="nextStep()">Bấm tiếp nè 👉</button>
+  </div>
+
+  <div id="message2" class="card hidden">
+    <h2>💌 Mời bé tham dự cùng toi vào ngày maii !!</h2>
+    <p><b>Lịch trình:</b></p>
+    <p>📍 17:00 - 17:15 - Mìn sang rước công chúa điii</p>
+    <p>📍 18:00 - Nạp đầy năng lượng, chụp lại ảnh ở Hancook Bình Thạnh </p>
+    <p>📍 19:30 - 20:00 - Chụp photobooth dữ kỉ niệm chung nàoo📸</p>
+    <p>📍 20:00 hơn - Đoàn mìn di chuyển sang Thanh Đa hít gió trời nhá </p>
+    <p>📍 22:00 hơn - Lết lại lên xe chạy vivuu hộ tống công chúa nhỏ về lại Kinh Đô </p>
+    <p style="margin-top:15px;">
+      🌸 <b>Note:</b><br>
+      Trang phục: màu trắng / đen / màu dì cũm đc miễn embe thích <br>
+      Cần chuẩn bị: Sức khỏe, tinh thần thật dui dẻ và thật xinhh xắn để đi date nhóoo 💕
+    </p>
+  </div>
+</div>
+
+<script>
+let step = 0;
+
+function nextStep() {
+  step++;
+
+  if (step === 1) {
+    document.getElementById("message1").classList.remove("hidden");
+  } else if (step === 2) {
+    document.getElementById("message2").classList.remove("hidden");
+  }
+}
+
+/* create hearts */
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML = "💗";
+
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (10 + Math.random() * 20) + "px";
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 6000);
+}
+
+setInterval(createHeart, 500);
+</script>
+
+</body>
+</html>
